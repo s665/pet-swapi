@@ -1,0 +1,22 @@
+.panel {
+  box-sizing: border-box;
+  background: none;
+  border: none;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  color: #fff;
+  padding: 15px 25px;
+  cursor: pointer;
+  transition: color .5s, border-color .5s;
+  &:hover {
+    border-color: orange;
+    color: orange;
+    transition: all .5s;
+  }
+}
+
+.active {
+  border-color: orange;
+  color: orange;
+}

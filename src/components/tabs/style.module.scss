@@ -1,0 +1,13 @@
+.tabs {
+  min-width: 500px;
+  width: auto;
+  height: auto;
+}
+
+.panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 25px;
+}
