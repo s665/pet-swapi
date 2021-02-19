@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {Tabs, Tab, Panel} from '../../tabs'
 
 import style from './style.module.scss'
@@ -8,8 +8,6 @@ const Home = () => {
 
     return (
         <div className={style.homePage}>
-
-
             <Tabs>
                 <Tab><RandomItem/></Tab>
                 <Tab>
@@ -21,7 +19,6 @@ const Home = () => {
                 <Panel>People</Panel>
                 <Panel>Starships</Panel>
             </Tabs>
-
         </div>
     );
 }

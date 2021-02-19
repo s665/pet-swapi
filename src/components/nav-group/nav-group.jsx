@@ -4,6 +4,7 @@ import Header from "./header";
 import NavBar from "./nav-bar";
 
 const NavGroup = () => {
+
     const history = useHistory();
 
     history.listen(() => {
