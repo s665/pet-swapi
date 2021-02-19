@@ -1,0 +1,32 @@
+.errorIndicator {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  img {
+    max-width: 150px;
+  }
+}
+
+h4 {
+  color: #FF364F;
+  margin: 15px;
+}
+
+span{
+  color: #FF364F;
+  text-shadow: 0 0 0.4em rgba(255, 0, 0, .5);
+}
+
+.yoda {
+  color: #588AC0;
+  text-shadow: 0 0 0.4em rgba(0, 0, 255, .5);
+}

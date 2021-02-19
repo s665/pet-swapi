@@ -1,0 +1,87 @@
+@import "../../../assets/style/fonts";
+
+.header {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  position: absolute;
+}
+
+.logo {
+  padding-top: 5px;
+  a {
+    font-family: 'StarJedi', 'Roboto', sans-serif;
+    color: #fff;
+    text-decoration: none;
+    font-size: 2rem;
+    text-transform: uppercase;
+    transition: .5s;
+    &:hover {
+      color: orange;
+      transition: .5s;
+    }
+  }
+}
+
+.burger {
+  width: 50px;
+  height: 27px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  box-sizing: border-box;
+  cursor: pointer;
+  &:hover span {
+    background-color: orange;
+    transition: .5s;
+    &:after, &:before {
+      background: orange;
+      transition: .5s;
+    }
+  }
+  span {
+    width: 80%;
+    height: 2px;
+    margin-left: 20%;
+    background-color: #fff;
+    display: block;
+    transition: .5s;
+    &::before, &::after {
+      content: '';
+      height: 2px;
+      background-color: #fff;
+      position: absolute;
+      float: right;
+      transition: .5s;
+    }
+    &::before {
+      top: 0;
+      right: 0;
+      width: 100%;
+    }
+    &::after {
+      bottom: 0;
+      right: 0;
+      width: 60%;
+    }
+  }
+}
+
+.test {
+  opacity: 0.5;
+}
+
+.testenterDone {
+  opacity: 1;
+}
+
+.testActive{
+  opacity: 1;
+}
+
+.testDone{
+  opacity: 1;
+}
