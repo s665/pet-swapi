@@ -1,0 +1,50 @@
+.slider {
+  width: 1000px;
+  height: 350px;
+  overflow: hidden;
+}
+
+.wrapSlide {
+  width: 100%;
+  height: 85%;
+  display: flex;
+  overflow: visible;
+}
+
+.control {
+  width: 100%;
+  height: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  & > button {
+    outline: none;
+    border: none;
+    background: none;
+    color: #fff;
+    font-size: 1rem;
+    margin: 5px;
+    width: auto;
+    height: auto;
+    cursor: pointer;
+    display: block;
+    padding: 15px;
+    transition: color .5s;
+    &:hover {
+      color: orange;
+      transition: color .5s;
+    }
+  }
+}
+
+.play {
+  font-size: 1.4rem !important;
+}
+
+.active {
+  color: orange !important;
+}
+
+
+

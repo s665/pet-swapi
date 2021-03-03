@@ -9,7 +9,7 @@ const useRequest = (request) => {
     })
 
     useEffect(() => {
-        const canceled = false
+        let canceled = false
         request()
             .then(data => !canceled && setDataState({
                 loading: false,
@@ -21,6 +21,7 @@ const useRequest = (request) => {
                 error,
                 data: null
             }))
+        return () => canceled = true
     }, [request])
 
     return dataState

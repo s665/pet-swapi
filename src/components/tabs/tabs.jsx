@@ -20,7 +20,7 @@ const Tabs = ({children}) => {
     const changeIdx = (idx) => () => {
         setIdx(idx)
     }
-    const test = panel.map((item, idx) => {
+    const panelItem = panel.map((item, idx) => {
         return React.cloneElement(
             item,
             {
@@ -38,7 +38,7 @@ const Tabs = ({children}) => {
                     {tabs[idx]}
                 </div>
                 <div className={style.panel}>
-                    {test}
+                    {panelItem}
                 </div>
             </div>
         </TabIndex.Provider>

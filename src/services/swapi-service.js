@@ -12,16 +12,6 @@ export default class SwapiService {
         return await res.json();
     };
 
-    getImage = async (url) => {
-        const res = await fetch(`${this._imageBase}${url}`)
-
-        if (!res.ok) {
-            throw new Error(`Could not fetch image${url}` +
-                `, received ${res.status}`)
-        }
-        return res.url
-    }
-
     getAllPeople = async () => {
         const res = await this.getResource(`/people`);
         return res.results
@@ -101,9 +91,8 @@ export default class SwapiService {
         return `${this._imageBase}/characters/${id}.jpg`
     }
 
-    getPlanetImage = async (id) => {
-        return await this.getImage(`/planets/${id}.jpg`)
-
+    getPlanetImage = (id) => {
+        return `${this._imageBase}/planets/${id}.jpg`
     }
 
     getStarshipImage = (id) => {
