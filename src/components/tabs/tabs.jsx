@@ -2,7 +2,7 @@ import React, {createContext, useState} from 'react';
 
 import style from './style.module.scss';
 
-const TabIndex = createContext()
+export const TabIndex = createContext()
 
 const Tabs = ({children}) => {
 

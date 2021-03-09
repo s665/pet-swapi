@@ -2,17 +2,18 @@ import React, {useState} from 'react';
 
 import img from '../../assets/image/image-not-found.png'
 
-const Image = ({src}) => {
+const Image = ({src, alt, altImage}) => {
 
     const [image, setImage] = useState(src)
 
     const handleErrorLoadImage = () => {
-        setImage(img)
+
+        setImage(altImage ? altImage : img)
     }
 
     return (
         <img src={image}
-             alt=""
+             alt={alt}
              onError={handleErrorLoadImage}/>
     );
 }

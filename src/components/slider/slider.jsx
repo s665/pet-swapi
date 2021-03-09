@@ -4,7 +4,7 @@ import Slide from "./slide";
 import useSliderControl from "../hook/useSliderControl";
 
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faPlay, faRandom, faStepBackward, faStepForward, faStop} from "@fortawesome/free-solid-svg-icons";
+import {faPlay, faRandom, faStepBackward, faStepForward, faStop, faUndo} from "@fortawesome/free-solid-svg-icons";
 
 const Slider = ({data, renderFunction}) => {
 
@@ -19,11 +19,13 @@ const Slider = ({data, renderFunction}) => {
         prev,
         next,
         toggleRandom,
+        loop,
+        loopSlide,
         visibleSlide,
         random,
         autoPlay
     } = useSliderControl(data.length)
-    
+
     const playButton = autoPlay
         ? <FontAwesomeIcon icon={faStop}/>
         : <FontAwesomeIcon icon={faPlay}/>
@@ -35,6 +37,10 @@ const Slider = ({data, renderFunction}) => {
                 {slides}
             </div>
             <div className={style.control}>
+                <button onClick={loop}
+                        className={loopSlide ? style.active : null}>
+                    <FontAwesomeIcon icon={faUndo}/>
+                </button>
                 <button onClick={prev}>
                     <FontAwesomeIcon icon={faStepBackward}/>
                 </button>

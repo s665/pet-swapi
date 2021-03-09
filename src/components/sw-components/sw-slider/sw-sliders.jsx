@@ -2,29 +2,28 @@ import React from 'react';
 import Image from "../../image";
 import style from "../../slider/slide/style.module.scss";
 import Slider from "../../slider";
-import useGetSwapiEssenceList from "../../hook/useGetSwapiEssenceList";
-import Spinner from "../../spinner";
+
 import withSwapiData from "../../hoc-helpers/withSwapiData";
 import withRenderFunction from "../../hoc-helpers/withRenderFunction";
 import compose from "../../hoc-helpers/compose";
 
 //Methods for essence
 
-const mapPlanetsMethods = (swapiService) => {
+export const mapPlanetsMethods = (swapiService) => {
     return {
         getData: swapiService.getAllPlanets,
         essence: 'planets',
     }
 }
 
-const mapPeopleMethods = (swapiService) => {
+export const mapPeopleMethods = (swapiService) => {
     return {
         getData: swapiService.getAllPeople,
         essence: 'people',
     }
 }
 
-const mapStarshipsMethods = (swapiService) => {
+export const mapStarshipsMethods = (swapiService) => {
     return {
         getData: swapiService.getAllStarships,
         essence: 'starships',

@@ -1,12 +1,13 @@
 import {useCallback, useEffect, useState} from "react";
 
-const useSliderControl = (slideLength,) => {
+const useSliderControl = (slideLength) => {
 
-    const defaultTimeInterval = 1000
+    const defaultTimeInterval = 10000
 
     const [slide, setSlide] = useState(1)
     const [random, setRandom] = useState(false)
     const [autoPlay, setAutoplay] = useState(false)
+    const [loopSlide, setLoopSlide] = useState(false)
 
     const visibleSlide = {
         transform: `translateX(-${(slide - 1) * 100}%)`,
@@ -28,16 +29,21 @@ const useSliderControl = (slideLength,) => {
     const next = () => {
         if (random) {
             setRandomSlide()
+        } else if (loopSlide) {
+            setSlide(prevState => prevState === slideLength ? 1 : ++prevState)
         } else {
-            setSlide(prevState => prevState === slideLength ? prevState : prevState + 1)
+            setSlide(prevState => prevState === slideLength ? prevState : ++prevState)
         }
     }
 
     const prev = () => {
         if (random) {
             setRandomSlide()
-        } else {
-            setSlide(prevState => prevState > 1 ? prevState - 1 : prevState)
+        } else if (loopSlide) {
+            setSlide(prevState => prevState > 1 ? --prevState : slideLength)
+        }
+        else {
+            setSlide(prevState => prevState > 1 ? --prevState : prevState)
         }
     }
 
@@ -47,6 +53,10 @@ const useSliderControl = (slideLength,) => {
 
     const play = () => {
         setAutoplay(prevState => !prevState)
+    }
+
+    const loop = () => {
+        setLoopSlide(prevState => !prevState)
     }
 
     useEffect(() => {
@@ -71,6 +81,8 @@ const useSliderControl = (slideLength,) => {
         play,
         prev,next,
         toggleRandom,
+        loop,
+        loopSlide,
         visibleSlide,
         random,
         autoPlay}
