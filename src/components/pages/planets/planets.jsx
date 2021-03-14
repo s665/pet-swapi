@@ -1,6 +1,5 @@
 import React from 'react';
 
-import style from './style.module.scss'
 import {PlanetsItemList} from "../../sw-components/sw-item-list";
 import {PlanetsSlider} from "../../sw-components/sw-slider/sw-sliders";
 import Row from "../../row";
@@ -12,8 +11,8 @@ const Planets = ({history, match}) => {
     const {id} = match.params
 
     return (
-        <div className={style.planets}>
-            <PlanetsSlider autoPlayAndNoControl/>
+        <div className="fs-center-container">
+            <PlanetsSlider isAutoPlay isControl={false}/>
             <Row left={
                 <PlanetsItemList onItemSelected={(id) => history.push(id)}/>
                 }

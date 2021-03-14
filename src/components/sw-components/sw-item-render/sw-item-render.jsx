@@ -19,10 +19,10 @@ export const renderPlanets = ({diameter, rotationPeriod, population, name, id}) 
     )
 }
 
-export const renderPeople = ({id, name, gender, birthYear, eyeColor, }) => {
+export const renderPeople = ({id, name, gender, birthYear, eyeColor}) => {
     return (
         <>
-            <Image src={`image`}/>
+            <Image src={`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`}/>
             <div className={style.description}>
                 <h1>{name}</h1>
                 <ul>

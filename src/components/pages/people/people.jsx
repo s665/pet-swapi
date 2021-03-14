@@ -1,12 +1,21 @@
 import React from 'react';
+import {withRouter} from "react-router-dom";
 
-import style from './style.module.scss'
+import {PeopleSlider} from "../../sw-components/sw-slider/sw-sliders";
 import {PeopleItemList} from "../../sw-components/sw-item-list";
 
-const People = () => {
+const People = ({history}) => {
+
     return (
-        <PeopleItemList/>
+        <div className="fs-center-container">
+            <PeopleSlider isAutoPlay
+                          isControl={false}/>
+            <div className="container">
+                <PeopleItemList onItemSelected={(id) => history.push(id)}/>
+            </div>
+
+        </div>
     );
 }
 
-export default People;
+export default withRouter(People);

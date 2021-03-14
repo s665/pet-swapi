@@ -1,13 +1,12 @@
 import React from 'react';
 import {Tabs, Tab, Panel} from '../../tabs'
 
-import style from './style.module.scss'
 import {PeopleSlider, PlanetsSlider, StarshipsSlider} from "../../sw-components/sw-slider/sw-sliders";
 
 const Home = () => {
 
     return (
-        <div className={style.homePage}>
+        <div className="fs-center-container">
             <Tabs>
                 <Tab>
                     <PlanetsSlider/>

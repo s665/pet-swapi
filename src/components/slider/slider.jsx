@@ -11,7 +11,8 @@ const Slider = (props) => {
     const {
         data,
         renderFunction,
-        autoPlayAndNoControl
+        isAutoPlay,
+        isControl
     } = props
 
     const slides = data.map((item, idx) => {
@@ -30,7 +31,7 @@ const Slider = (props) => {
         visibleSlide,
         random,
         autoPlay,
-    } = useSliderControl(data.length, autoPlayAndNoControl)
+    } = useSliderControl(data.length, isAutoPlay, isControl)
 
     const playButton = autoPlay
         ? <FontAwesomeIcon icon={faStop}/>
@@ -42,7 +43,7 @@ const Slider = (props) => {
                  style={visibleSlide}>
                 {slides}
             </div>
-            {autoPlayAndNoControl ||
+            {isControl &&
             <div className={style.control}>
                 <button onClick={loop}
                         className={loopSlide ? style.active : null}>
