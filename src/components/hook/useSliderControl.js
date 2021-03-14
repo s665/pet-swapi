@@ -1,12 +1,12 @@
 import {useCallback, useEffect, useState} from "react";
 
-const useSliderControl = (slideLength) => {
+const useSliderControl = (slideLength, auto=false) => {
 
-    const defaultTimeInterval = 10000
+    const defaultTimeInterval = 5000
 
     const [slide, setSlide] = useState(1)
     const [random, setRandom] = useState(false)
-    const [autoPlay, setAutoplay] = useState(false)
+    const [autoPlay, setAutoplay] = useState(auto)
     const [loopSlide, setLoopSlide] = useState(false)
 
     const visibleSlide = {
@@ -69,6 +69,7 @@ const useSliderControl = (slideLength) => {
             } else {
                 interval = setInterval(() => {
                     setSlide(prevState => prevState === slideLength ? 1 : ++prevState)
+
                 }, defaultTimeInterval)
             }
         }
@@ -85,7 +86,8 @@ const useSliderControl = (slideLength) => {
         loopSlide,
         visibleSlide,
         random,
-        autoPlay}
+        autoPlay,
+    }
 }
 
 export default useSliderControl;

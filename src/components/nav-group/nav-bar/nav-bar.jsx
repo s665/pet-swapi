@@ -19,7 +19,7 @@ const NavBar = ({toggleNavBar, showNavBar}) => {
                 </div>
                 <ul className={style.navList}>
                     <li className={style.navItem}>
-                        <NavLink to='/planets'
+                        <NavLink to='/planets/'
                                  activeClassName={style.active}>
                             Planets
                         </NavLink>

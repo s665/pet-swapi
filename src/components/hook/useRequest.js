@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 
-const useRequest = (request) => {
+const useRequest = (request, isSendRequest) => {
 
     const [dataState, setDataState] = useState({
         loading: true,
@@ -10,21 +10,30 @@ const useRequest = (request) => {
 
     useEffect(() => {
         let canceled = false
-        request()
-            .then(data => !canceled && setDataState({
+        if (!!isSendRequest) {
+            request()
+                .then(data => !canceled && setDataState({
+                    loading: false,
+                    error: false,
+                    data
+                }))
+                .catch(error => !canceled && setDataState({
+                    loading: false,
+                    error,
+                    data: null
+                }))
+        } else {
+            setDataState({
                 loading: false,
-                error: false,
-                data
-            }))
-            .catch(error => !canceled && setDataState({
-                loading: false,
-                error,
-                data: null
-            }))
+                data: null,
+                error: false
+            })
+        }
         return () => canceled = true
-    }, [request])
+    }, [isSendRequest, request])
 
     return dataState
+
 
 }
 

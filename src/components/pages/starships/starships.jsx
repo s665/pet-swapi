@@ -1,14 +1,14 @@
 import React from 'react';
 
 import style from './style.module.scss';
-import withSwapiData from "../../hoc-helpers/withSwapiData";
-import {mapStarshipsMethods} from "../../sw-components/sw-slider/sw-sliders";
+import {StarshipsItemList} from "../../sw-components/sw-item-list";
 
-const Starships = ({data}) => {
+
+const Starships = (props) => {
 
     return (
-        <div>Starships</div>
-    );
+        <StarshipsItemList/>
+    )
 }
 
-export default withSwapiData(mapStarshipsMethods)(Starships);
+export default Starships;
